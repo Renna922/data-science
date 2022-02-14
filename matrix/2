@@ -1,1 +1,11 @@
+#find the number of rows and colums of a given matrix using numpy
+import numpy as np
+matrix=np.array([[2,4,6],[7,3,1],[4,8,2],[7,1,5]])
+row,column=matrix.shape
+print("number of row:",row)
+print("number of column:",column)
+
+OUTPUT
+number of row: 4
+number of column: 3
 
