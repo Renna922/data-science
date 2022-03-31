@@ -1,0 +1,25 @@
+
+from sklearn import datasets,linear_model
+from sklearn.model_selection import train_test_split
+import numpy as np
+import matplotlib.pyplot as plt
+x,y=datasets.load_diabetes(return_X_y=True)
+x=x[:,np.newaxis,2]
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=0)
+
+model=linear_model.LinearRegression()
+model.fit(x_train,y_train)
+y_pred=model.predict(x_test)
+plt.scatter(x_test,y_test,color='black')
+plt.plot(x_test,y_pred,color='red')
+plt.xlabel('age')
+plt.ylabel('diabetes progression')
+plt.xticks()
+plt.yticks()
+
+plt.show()
+
+from sklearn.metrics import r2_score
+
+print("R2Score",r2_score(y_test,y_pred))
+ 
