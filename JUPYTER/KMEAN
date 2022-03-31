@@ -1,0 +1,17 @@
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+from sklearn.cluster import KMeans
+data=load_iris().data
+
+model=KMeans(n_clusters=3)
+model.fit(data)
+labels=model.predict(data)
+ctn=model.cluster_centers_
+plt.scatter(data[:,2],data[:,3],c=labels)
+plt.scatter(ctn[:,2],ctn[:,3],color='red')
+plt.xlabel('petal length')
+plt.ylabel('petal width')
+plt.show()
